@@ -1,0 +1,14 @@
+[2026-05-08 08:09:00] URL: http://www.example.com | Ação: PERMITIDO
+[2026-05-08 08:10:57] URL: http://www.example.com | Ação: ERRO: Extra data: line 8 column 1 (char 121)
+[2026-05-08 08:13:21] URL: http://www.facebook.com | Ação: BLOQUEADO
+[2026-05-08 08:18:41] URL: http://www.facebook.com | Ação: BLOQUEADO
+[2026-05-08 08:31:31] URL: http://www.facebook.com | Ação: BLOQUEADO
+[2026-05-08 08:37:33] URL: http://www.uol.com.br | Ação: BLOQUEADO
+[2026-05-08 08:52:59] URL: http://www.facebook.com | Ação: BLOQUEADO
+[2026-05-08 08:52:59] URL: http://www.uol.com.br | Ação: BLOQUEADO
+[2026-05-08 08:53:00] URL: http://www.example.com | Ação: FILTRADO
+[2026-05-08 08:53:00] URL: http://www.google.com | Ação: FILTRADO
+[2026-05-08 09:00:03] URL: http://www.facebook.com | Ação: BLOQUEADO
+[2026-05-08 09:00:03] URL: http://www.uol.com.br | Ação: BLOQUEADO
+[2026-05-08 09:00:03] URL: http://www.example.com | Ação: FILTRADO
+[2026-05-08 09:00:03] URL: http://www.google.com | Ação: FILTRADO
