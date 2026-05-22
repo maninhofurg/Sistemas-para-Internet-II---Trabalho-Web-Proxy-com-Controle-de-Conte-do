@@ -30,3 +30,10 @@
 [2026-05-15 12:48:56] URL: http://httpforever.com/ | Ação: FILTRADO
 [2026-05-15 12:48:56] URL: http://httpforever.com/js/init.min.js | Ação: PERMITIDO
 [2026-05-15 12:48:57] URL: http://httpforever.com/css/style.min.css | Ação: PERMITIDO
+[2026-05-22 10:01:50] URL: http://favicon.ico | Ação: ERRO: HTTPConnectionPool(host='favicon.ico', port=80): Max retries exceeded with url: / (Caused by NameResolutionError("HTTPConnection(host='favicon.ico', port=80): Failed to resolve 'favicon.ico' ([Errno -2] Name or service not known)"))
+[2026-05-22 10:10:59] URL: http://www.facebook.com | Ação: BLOQUEADO
+[2026-05-22 10:10:59] URL: http://www.uol.com.br | Ação: BLOQUEADO
+[2026-05-22 10:10:59] URL: http://www.example.com | Ação: FILTRADO
+[2026-05-22 10:10:59] URL: http://www.google.com | Ação: FILTRADO
+[2026-05-22 10:14:12] URL: http://neverssl.com | Ação: PERMITIDO
+[2026-05-22 10:16:01] URL: http://www.uol.com.br | Ação: BLOQUEADO
