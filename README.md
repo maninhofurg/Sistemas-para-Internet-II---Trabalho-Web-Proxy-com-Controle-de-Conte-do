@@ -2,7 +2,7 @@
 **Disciplina:** Sistemas para Internet II (2026/1)  
 **Professor:** Dr. André Prisco Vargas  
 **Estudante:** Alessandro Goldas da Cruz - 166600
-**Estudante:** Lucas de Gesu - 170000
+**Estudante:** Lucas de Gesu - 162668
 
 ## 1. Descrição do Projeto
 Este projeto consiste na implementação de um **Web Proxy** didático desenvolvido em Python. O servidor atua como um intermediário entre um cliente e a Internet, processando requisições HTTP e aplicando regras de segurança e filtragem baseadas em ficheiros de configuração JSON.
