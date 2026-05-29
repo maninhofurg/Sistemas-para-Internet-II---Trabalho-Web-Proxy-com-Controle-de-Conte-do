@@ -1,54 +1,60 @@
-# Nome do arquivo: cliente.py
 import socket
+import sys
 
 def testar_proxy(url_alvo):
     HOST = '127.0.0.1'
     PORTA = 5000 
     
+    # Remove o prefixo http:// para enviar de forma limpa ao Flask
+    url_limpa = url_alvo.replace("http://", "")
+    
     print(f"\n>>> TESTANDO ACESSO A: {url_alvo}")
     
     try:
-        # 1. Criando o Socket TCP
         cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        cliente.settimeout(5) # Timeout de 5 segundos para não travar
+        cliente.settimeout(5)
         cliente.connect((HOST, PORTA))
 
-        # 2. Montando a requisição HTTP manualmente
-        requisicao = (
-            f"GET /{url_alvo} HTTP/1.1\r\n"
-            f"Host: {HOST}\r\n"
-            "Connection: close\r\n"
-            "\r\n"
-        )
+        # Envia apenas a URL limpa após o GET /
+        requisicao = f"GET /{url_limpa} HTTP/1.1\r\nHost: {HOST}\r\nConnection: close\r\n\r\n"
 
-        # 3. Enviar
         cliente.sendall(requisicao.encode())
 
-        # 4. Receber a resposta
         resposta = b""
         while True:
             dados = cliente.recv(4096)
             if not dados: break
             resposta += dados
         
-        # Exibe apenas o início da resposta para não inundar o terminal
-        resultado = resposta.decode(errors='ignore')
         print("--- RESPOSTA RECEBIDA ---")
-        print(resultado[:500] + "...") # Mostra os primeiros 500 caracteres
-        
+        # Imprime os primeiros caracteres da resposta para não poluir o terminal
+        print(resposta.decode(errors='ignore')[:500] + "...\n")
+        print("-" * 50)
         cliente.close()
+        
     except Exception as e:
-        print(f"Erro ao conectar no proxy: {e}")
+        print(f"Erro ao conectar com {url_alvo}: {e}\n")
+        print("-" * 50)
 
-# --- LISTA DE TESTES ---
-sites_para_testar = [
-    "http://www.facebook.com",    # Deve ser BLOQUEADO
-    "http://www.uol.com.br",      # Deve ser BLOQUEADO
-    "http://www.example.com",     # Deve ser PERMITIDO e FILTRADO
-    "http://www.google.com"       # Deve ser PERMITIDO (Modo Transparente)
-]
+# --- MENU INTERATIVO ---
+if __name__ == "__main__":
+    print("="*50)
+    print("  CLIENTE DE TESTE TCP - WEB PROXY SI II")
+    print("  Digite 'sair' a qualquer momento para encerrar.")
+    print("="*50)
 
-# --- LAÇO FOR ---
-for site in sites_para_testar:
-    testar_proxy(site)
-    print("-" * 50)
+    while True:
+        # Pede para o usuário digitar o site
+        entrada_site = input("\nDigite a URL para testar (ex: http://www.example.com): ").strip()
+        
+        # Condição de parada
+        if entrada_site.lower() == 'sair':
+            print("Encerrando o cliente de testes. Até logo!")
+            sys.exit(0)
+            
+        # Ignora se o usuário apertar Enter sem digitar nada
+        if not entrada_site:
+            continue
+            
+        # Executa o teste com o site digitado
+        testar_proxy(entrada_site)
